@@ -1,3 +1,32 @@
+<h3>Example of NestJS (version 9.X) dependency injection not resolving to the correct singleton instance.</h3>
+
+Given the following class diagram and making BService declare the constructor dependencies in a different order than CService:
+
+```mermaid
+classDiagram
+
+BaseEntityService --> IDatabaseProvider
+<<interface>> IDatabaseProvider
+AService <-- BService
+AService <-- CService
+BaseEntityService <|-- AService
+BaseEntityService <|-- BService
+BaseEntityService <|-- CService
+```
+
+The injected AService instance to the BService singleton instance is not the AService singletong instance exported in AModule:
+
+```sh
+16:49:25.157 Instantiating BService
+16:49:25.161 Instantiating AService
+16:49:25.162 Instantiating CService
+16:49:25.162 Is AService instance the AService singleton instance?
+    BService: false
+    CService: true
+```
+
+___
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
