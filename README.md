@@ -14,7 +14,7 @@ BaseEntityService <|-- BService
 BaseEntityService <|-- CService
 ```
 
-The injected AService instance to the BService singleton instance is not the AService singletong instance exported in AModule:
+The injected AService instance to the BService singleton instance is not the AService singleton instance exported in AModule:
 
 ```sh
 16:49:25.157 Instantiating BService
@@ -25,7 +25,7 @@ The injected AService instance to the BService singleton instance is not the ASe
     CService: true
 ```
 
-___
+---
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
